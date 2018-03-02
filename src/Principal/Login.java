@@ -6,7 +6,7 @@ public class Login extends javax.swing.JFrame {
             initComponents();
             setResizable(false);
             setLocationRelativeTo(this);
-            setTitle("Login");
+            setTitle("Tela De Login");
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
