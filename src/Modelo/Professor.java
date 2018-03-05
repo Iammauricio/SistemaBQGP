@@ -12,6 +12,16 @@ package Modelo;
 public class Professor {
     private int cpf;
     private int senha;
+    private int cod;
+    private String nome;
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
     public int getCpf() {
         return cpf;
@@ -36,5 +46,4 @@ public class Professor {
     public void setCod(int cod) {
         this.cod = cod;
     }
-    private int cod;
 }

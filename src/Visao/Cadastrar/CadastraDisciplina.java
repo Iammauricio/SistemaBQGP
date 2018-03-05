@@ -68,7 +68,7 @@ public class CadastraDisciplina extends javax.swing.JFrame {
         jLabel2.setText("ÁREA DA DISCIPLINA");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel3.setText("NOME DADISCIPLINA");
+        jLabel3.setText("NOME DA DISCIPLINA");
 
         jButton1.setText("LIMPAR");
 
@@ -94,7 +94,7 @@ public class CadastraDisciplina extends javax.swing.JFrame {
                                 .addComponent(jLabel3)
                                 .addGap(18, 18, 18)
                                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(110, Short.MAX_VALUE))
+                        .addContainerGap(106, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(41, 41, 41)
