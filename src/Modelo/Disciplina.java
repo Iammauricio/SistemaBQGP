@@ -7,26 +7,27 @@ package Modelo;
 
 /**
  *
- * @author Maurilio Freitas
+ * @author danni
  */
-public class Professor {
-    private int cpf;
-    private int senha;
+public class Disciplina {
+    private String area;
+    private String nome;
+    private int cod;
 
-    public int getCpf() {
-        return cpf;
+    public String getArea() {
+        return area;
     }
 
-    public void setCpf(int cpf) {
-        this.cpf = cpf;
+    public void setArea(String area) {
+        this.area = area;
     }
 
-    public int getSenha() {
-        return senha;
+    public String getNome() {
+        return nome;
     }
 
-    public void setSenha(int senha) {
-        this.senha = senha;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public int getCod() {
@@ -36,5 +37,4 @@ public class Professor {
     public void setCod(int cod) {
         this.cod = cod;
     }
-    private int cod;
 }
