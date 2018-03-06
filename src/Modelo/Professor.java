@@ -11,7 +11,7 @@ package Modelo;
  */
 public class Professor {
     private int cpf;
-    private int senha;
+    private String senha;
     private int cod;
     private String nome;
 
@@ -31,11 +31,11 @@ public class Professor {
         this.cpf = cpf;
     }
 
-    public int getSenha() {
+    public String getSenha() {
         return senha;
     }
 
-    public void setSenha(int senha) {
+    public void setSenha(String senha) {
         this.senha = senha;
     }
 

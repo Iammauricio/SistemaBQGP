@@ -23,7 +23,7 @@ try{
     ps.setInt(1,a.getCod());
     ps.setString(2,a.getNome());
     ps.setInt(3,a.getCpf());
-    ps.setInt(4,a.getSenha());
+    ps.setString(4,a.getSenha());
     if(ps.executeUpdate() > 0){
         return "Inserido com sucesso";
     }else{
@@ -53,7 +53,7 @@ public List<Professor>  ListarProfessor(){
             a.setCod(rs.getInt(1));
             a.setNome(rs.getString(2));
             a.setCpf(rs.getInt(3));
-            a.setSenha(rs.getInt(4));
+            a.setSenha(rs.getString(4));
             
           
             
@@ -87,7 +87,7 @@ public List<Professor>  ListarProfessor(){
             a.setCod(rs.getInt(1));
             a.setNome(rs.getString(2));
             a.setCpf(rs.getInt(3));
-            a.setSenha(rs.getInt(4));
+            a.setSenha(rs.getString(4));
             
                         
                 lista.add(a);
@@ -119,7 +119,7 @@ public List<Professor>  ListarProfessor(){
             a.setCod(rs.getInt(1));
             a.setNome(rs.getString(2));
             a.setCpf(rs.getInt(3));
-            a.setSenha(rs.getInt(4));
+            a.setSenha(rs.getString(4));
             
             
             
@@ -167,7 +167,7 @@ if( rs!= null){
             a.setCod(rs.getInt(1));
             a.setNome(rs.getString(2));
             a.setCpf(rs.getInt(3));
-            a.setSenha(rs.getInt(4));
+            a.setSenha(rs.getString(4));
             
         lista.add(a);
 
@@ -191,7 +191,7 @@ if( rs!= null){
     ps.setInt(1,a.getCod());
     ps.setString(2,a.getNome());
     ps.setInt(3,a.getCpf());
-    ps.setInt(4,a.getSenha());
+    ps.setString(4,a.getSenha());
     
       if(ps.executeUpdate() > 0){
         return "Atualizado com sucesso";}else{ return "Erro ao Atualizar";}
@@ -214,7 +214,7 @@ if( rs!= null){
             a.setCod(rs.getInt(1));
             a.setNome(rs.getString(2));
             a.setCpf(rs.getInt(3));
-            a.setSenha(rs.getInt(4));
+            a.setSenha(rs.getString(4));
             
    
    
@@ -245,7 +245,7 @@ if( rs!= null){
             a.setCod(rs.getInt(1));
             a.setNome(rs.getString(2));
             a.setCpf(rs.getInt(3));
-            a.setSenha(rs.getInt(4));
+            a.setSenha(rs.getString(4));
             
    lista.add(a);
    }
@@ -267,7 +267,7 @@ if( rs!= null){
    ps.setInt(1,a.getCod());
     ps.setString(2,a.getNome());
     ps.setInt(3,a.getCpf());
-    ps.setInt(4,a.getSenha());
+    ps.setString(4,a.getSenha());
     
    
    if(ps.executeUpdate() > 0){
@@ -297,7 +297,7 @@ if( rs!= null){
             a.setCod(rs.getInt(1));
             a.setNome(rs.getString(2));
             a.setCpf(rs.getInt(3));
-            a.setSenha(rs.getInt(4));
+            a.setSenha(rs.getString(4));
             
    lista.add(a);
    }
