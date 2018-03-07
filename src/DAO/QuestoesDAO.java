@@ -19,15 +19,14 @@ public class QuestoesDAO extends ExecuteSQL{
 // inserir os dados no banco
 public  String Inserir_Questao (Questoes a){
 
-String sql = "INSERT INTO questoes VALUES (0,?,?,?)";
+String sql = "INSERT INTO questoes VALUES (0,?,?,?,?)";
 try{
     PreparedStatement ps = getCon().prepareStatement(sql);
     
-    ps.setInt(1,a.getCod());
-    ps.setString(2,a.getAssunto());
-    ps.setString(3,a.getQuestao());
-    ps.setString(4,a.getResposta()); 
-    ps.setString(5,a.getDisciplina());
+    ps.setString(1,a.getAssunto());
+    ps.setString(2,a.getQuestao());
+    ps.setString(3,a.getResposta()); 
+    ps.setString(4,a.getDisciplina());
     
     if(ps.executeUpdate() > 0){
         return "Inserido com sucesso";

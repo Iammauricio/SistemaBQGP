@@ -17,13 +17,13 @@ public class ProfessorDAO extends ExecuteSQL{
 // inserir os dados no banco
 public  String Inserir_Professor(Professor a){
 
-String sql = "INSERT INTO professor VALUES (0,?,?,?,?,?,?,?,?,?,?)";
+String sql = "INSERT INTO professor VALUES (0,?,?,?)";
 try{
     PreparedStatement ps = getCon().prepareStatement(sql);
-    ps.setInt(1,a.getCod());
-    ps.setString(2,a.getNome());
-    ps.setInt(3,a.getCpf());
-    ps.setString(4,a.getSenha());
+   
+    ps.setString(1,a.getNome());
+    ps.setInt(2,a.getCpf());
+    ps.setString(3,a.getSenha());
     if(ps.executeUpdate() > 0){
         return "Inserido com sucesso";
     }else{
@@ -202,7 +202,7 @@ if( rs!= null){
     }
 
    public List<Professor> ListarComboProfessor(){
-   String sql = "SELECT nome FROM professor ORDER BY nome";
+   String sql = "SELECT * FROM professor ORDER BY Nome";
    List<Professor> lista = new ArrayList<>();
    try{
    PreparedStatement ps = getCon().prepareStatement(sql);
@@ -260,14 +260,11 @@ if( rs!= null){
    }
    
    public String Excluir_Professor(Professor a){
-   String sql = "DELETE FROM professor WHERE codigo = ? AND nome = ?";
+   String sql = "DELETE FROM professor WHERE Nome = ?";
    try{
    PreparedStatement ps = getCon().prepareStatement(sql);
   
-   ps.setInt(1,a.getCod());
-    ps.setString(2,a.getNome());
-    ps.setInt(3,a.getCpf());
-    ps.setString(4,a.getSenha());
+    ps.setString(1,a.getNome());
     
    
    if(ps.executeUpdate() > 0){

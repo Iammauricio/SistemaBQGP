@@ -18,13 +18,13 @@ public class DisciplinaDAO extends ExecuteSQL{
     // inserir os dados no banco
 public  String Inserir_Disciplina (Disciplina a){
 
-String sql = "INSERT INTO Disciplina VALUES (0,?,?,?)";
+String sql = "INSERT INTO disciplina VALUES (0,?,?)";
 try{
     PreparedStatement ps = getCon().prepareStatement(sql);
     
-    ps.setInt(1,a.getCod());
-    ps.setString(2,a.getArea());
-    ps.setString(3,a.getNome());
+
+    ps.setString(1,a.getArea());
+    ps.setString(2,a.getNome());
     
     if(ps.executeUpdate() > 0){
         return "Inserido com sucesso";
@@ -255,13 +255,11 @@ if( rs!= null){
    }
    
    public String Excluir_Disciplina(Disciplina a){
-   String sql = "DELETE FROM disciplina WHERE codigo = ? AND nome = ?";
+   String sql = "DELETE FROM disciplina WHERE  Nome = ?";
    try{
    PreparedStatement ps = getCon().prepareStatement(sql);
   
-    ps.setInt(1,a.getCod());
-    ps.setString(2,a.getArea());
-    ps.setString(3,a.getNome());
+    ps.setString(1,a.getNome());
     
     
    

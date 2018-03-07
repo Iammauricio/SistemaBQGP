@@ -2,6 +2,8 @@
 package Visao.Excluir;
 
 import DAO.Conexao;
+import Modelo.Questoes;
+import Principal.Menu;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +17,7 @@ Excluir enviartexto;
     public ExcluirQuestao() {
         initComponents();
         setResizable(false);
-        AtualizaComboCliente();
+        AtualizaComboQuestao();
         setLocationRelativeTo(this);
         setTitle("LISTA DE LOCAÇÕES");
         jTextField1.setVisible(false);
@@ -23,11 +25,11 @@ Excluir enviartexto;
 
     
 // METODO PARA LISTAR TODOS OS ALUGUEIS
-    private  void AtualizaDadosAluguel(){
+    private  void AtualizaDadosQuestao(){
 Connection con = Conexao.AbrirConexao();
-AluguelDAO bd = new AluguelDAO(con);
+ bd = new DAO(con);
 
-List<Aluguel> lista = new ArrayList<>();
+List<Questao> lista = new ArrayList<>();
 lista = bd.ListarAluguel();
 DefaultTableModel tbm = (DefaultTableModel) tabela.getModel();
 
@@ -50,15 +52,15 @@ Conexao.FecharConexao(con);
 }
 
 // SETAR OS CLIENTE NO JCOMBOBOX    
-private void AtualizaComboCliente(){
+private void AtualizaComboQuestao(){
     Connection con = Conexao.AbrirConexao();
-    ClienteDAO sql = new ClienteDAO(con);
+    QuestaoDAO sql = new QuestaoDAO(con);
     
-    List<Cliente> lista = new ArrayList<>();
+    List<Questao> lista = new ArrayList<>();
     lista = sql.ListarComboCliente();
     jComboBox1.addItem("");
     
-    for( Cliente b : lista){
+    for(Questao b : lista){
     jComboBox1.addItem(b.getNome());
     
     }

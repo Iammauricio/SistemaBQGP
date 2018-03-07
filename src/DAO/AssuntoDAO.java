@@ -16,12 +16,12 @@ public class AssuntoDAO extends ExecuteSQL{
 // inserir os dados no banco
 public  String Inserir_Assunto(Assunto a){
 
-String sql = "INSERT INTO assunto VALUES (0,?,?,?)";
+String sql = "INSERT INTO assunto VALUES (0,?,?)";
 try{
     PreparedStatement ps = getCon().prepareStatement(sql);
-    ps.setInt(1,a.getCod());
-    ps.setString(2,a.getAssunto());
-    ps.setString(3,a.getDisciplina());
+   
+    ps.setString(1,a.getAssunto());
+    ps.setString(2,a.getDisciplina());
             
     
     if(ps.executeUpdate() > 0){
@@ -202,7 +202,7 @@ if( rs!= null){
     }
 
    public List<Assunto> ListarComboAssunto(){
-   String sql = "SELECT nome FROM assunto ORDER BY nome";
+   String sql = "SELECT * FROM assunto ORDER BY Assunto";
    List<Assunto> lista = new ArrayList<>();
    try{
    PreparedStatement ps = getCon().prepareStatement(sql);
@@ -258,15 +258,13 @@ if( rs!= null){
    }
    
    public String Excluir_Assunto(Assunto a){
-   String sql = "DELETE FROM assunto WHERE codigo = ? AND nome = ?";
+   String sql = "DELETE FROM assunto WHERE  Assunto = ? AND Disciplina = ?";
    try{
    PreparedStatement ps = getCon().prepareStatement(sql);
   
-    ps.setInt(1,a.getCod());
-    ps.setString(2,a.getAssunto());
-    ps.setString(3,a.getDisciplina());
+    ps.setString(1,a.getAssunto());
+    ps.setString(2,a.getDisciplina());
     
-   
    if(ps.executeUpdate() > 0){
    return "Excluido com Sucesso";
    
