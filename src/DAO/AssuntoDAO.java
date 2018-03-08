@@ -184,13 +184,13 @@ if( rs!= null){
     }
     
     public String Alterar_Assunto( Assunto a){
-    String sql = "UPDATE Assunto SET disciplina = ? , assunto = ? ,senha = ? WHERE codigo = ? ";
+    String sql = "UPDATE assunto SET Disciplina = ? , Assunto = ?  WHERE Codigo = ? ";
     try{
     PreparedStatement ps = getCon().prepareStatement(sql);
     
-    ps.setInt(1,a.getCod());
+    ps.setInt(3,a.getCod());
     ps.setString(2,a.getAssunto());
-    ps.setString(3,a.getDisciplina());
+    ps.setString(1,a.getDisciplina());
     
     
       if(ps.executeUpdate() > 0){

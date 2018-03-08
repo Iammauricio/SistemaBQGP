@@ -1,4 +1,16 @@
 package Visao.Excluir;
+
+import DAO.Conexao;
+import DAO.ProfessorDAO;
+import DAO.QuestoesDAO;
+import Modelo.Professor;
+import Modelo.Questoes;
+import Principal.Menu;
+import java.sql.Connection;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+
 public class Excluir extends javax.swing.JFrame {
 
     public Excluir() {
@@ -7,6 +19,36 @@ public class Excluir extends javax.swing.JFrame {
         setLocationRelativeTo(this);
     }
 
+    
+ public void receber (String  codd){
+ jTextField1.setText(codd);
+int cod = Integer.parseInt(jTextField1.getText());
+     InserirDados(cod);
+ }
+
+ 
+    // METODO PARA INSERIR AS INFORMACOES NOS CAMPOS DE  TEXTO
+    private void InserirDados(int cod){
+    Connection con = Conexao.AbrirConexao();
+    QuestoesDAO sql = new  QuestoesDAO(con);
+    List<Questoes> lista = new ArrayList<>();
+    lista = sql.CapturarQuestoes(cod);
+    
+    for(Questoes a: lista){
+        
+       jTextField4.setText(""+a.getCod());
+        jTextField1.setText(""+a.getQuestao());
+        jTextField2.setText(""+a.getResposta());
+        jTextField3.setText(""+a.getDisciplina()+"");
+        jTextField5.setText(""+a.getAssunto()+"");
+        jTextField1.setText(""+a.getQuestao()+"");
+         jTextField2.setText(""+a.getResposta()+"");
+        
+    }
+    Conexao.FecharConexao(con);
+    }// END
+
+ 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -70,6 +112,11 @@ public class Excluir extends javax.swing.JFrame {
         jTextField2.setBackground(new java.awt.Color(204, 204, 204));
 
         jButton2.setText("EXCLUIR");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("CANCELAR");
 
@@ -176,6 +223,40 @@ public class Excluir extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+            String codigo = jTextField4.getText();
+      
+
+        Connection con = Conexao.AbrirConexao();
+       QuestoesDAO sql = new QuestoesDAO(con);
+        Questoes a = new  Questoes();
+
+        if (codigo.equals("")) {
+
+            JOptionPane.showMessageDialog(null, "Nenhum nome selecionado", "BQGP", JOptionPane.WARNING_MESSAGE);
+
+        }
+        else {
+
+            int b = JOptionPane.showConfirmDialog(null, "Deseja realmente excluir" + "\n ("+ codigo +")" , "BQGP", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+
+            if (b == 0) {
+                int codd = Integer.parseInt(codigo);
+                a.setCod(codd);
+                sql.Excluir_Questoes(a);
+                Conexao.FecharConexao(con);
+                dispose();
+                JOptionPane.showMessageDialog(null,"Categoria Professor excluido com sucesso");
+                new Menu().setVisible(true);
+
+            }
+
+        }
+
+        
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -2,6 +2,7 @@
 package Visao.Excluir;
 
 import DAO.Conexao;
+import DAO.QuestoesDAO;
 import Modelo.Questoes;
 import Principal.Menu;
 import java.sql.Connection;
@@ -17,51 +18,49 @@ Excluir enviartexto;
     public ExcluirQuestao() {
         initComponents();
         setResizable(false);
-        AtualizaComboQuestao();
+        AtualizaDadosQuestoes();
         setLocationRelativeTo(this);
         setTitle("LISTA DE LOCAÇÕES");
         jTextField1.setVisible(false);
     }
 
     
-// METODO PARA LISTAR TODOS OS ALUGUEIS
-    private  void AtualizaDadosQuestao(){
+// METODO PARA LISTAR TODOS AS QUESTOES
+    private  void AtualizaDadosQuestoes(){
 Connection con = Conexao.AbrirConexao();
- bd = new DAO(con);
+QuestoesDAO bd = new QuestoesDAO(con);
 
-List<Questao> lista = new ArrayList<>();
-lista = bd.ListarAluguel();
+List<Questoes> lista = new ArrayList<>();
+lista = bd.ListarQuestao();
 DefaultTableModel tbm = (DefaultTableModel) tabela.getModel();
 
 while(tbm.getRowCount() > 0){
 tbm.removeRow(0);
 }
 int i = 0;
-for(Aluguel tab : lista){
+for(Questoes tab : lista){
 tbm.addRow(new String[i]);
 tabela.setValueAt(tab.getCod(), i,0);
-tabela.setValueAt(tab.getCoddvd(), i,1);
-tabela.setValueAt(tab.getCodcliente(), i,2);
-tabela.setValueAt(tab.getHorario(), i,3);
-tabela.setValueAt(tab.getData_aluguel(), i,4);
-tabela.setValueAt(tab.getData_devolucao(), i,5);
+tabela.setValueAt(tab.getQuestao(), i,1);
+tabela.setValueAt(tab.getResposta(), i,2);
 
 i++;
 }
 Conexao.FecharConexao(con);
-}
+}//  END
+
 
 // SETAR OS CLIENTE NO JCOMBOBOX    
 private void AtualizaComboQuestao(){
     Connection con = Conexao.AbrirConexao();
-    QuestaoDAO sql = new QuestaoDAO(con);
+    QuestoesDAO sql = new QuestoesDAO(con);
     
-    List<Questao> lista = new ArrayList<>();
-    lista = sql.ListarComboCliente();
+    List<Questoes> lista = new ArrayList<>();
+    lista = sql.ListarComboQuestoes();
     jComboBox1.addItem("");
     
-    for(Questao b : lista){
-    jComboBox1.addItem(b.getNome());
+    for(Questoes b : lista){
+    jComboBox1.addItem(b.getDisciplina());
     
     }
     Conexao.FecharConexao(con);
@@ -70,25 +69,23 @@ private void AtualizaComboQuestao(){
 //METODO PARA LISTAR POR MEIO DO ID DO CLIENTE
 public void Listar_Cod_Cliente(String codcliente){
      Connection con = Conexao.AbrirConexao();
-    AluguelDAO bd = new AluguelDAO(con);
+    QuestoesDAO  bd = new QuestoesDAO(con);
 
-    List<Aluguel> lista = new ArrayList<>();
+    List<Questoes> lista = new ArrayList<>();
   
-    lista = bd.Pesquisar_Cod_Cliente(codcliente);
+    lista = bd.Pesquisar_Cod_Questoes(codcliente);
     DefaultTableModel tbm = (DefaultTableModel) tabela.getModel();
 
     while(tbm.getRowCount() > 0){
     tbm.removeRow(0);
     }
     int i = 0;
-    for(Aluguel tab : lista){
+    for(Questoes tab : lista){
     tbm.addRow(new String[i]);
    tabela.setValueAt(tab.getCod(), i,0);
-    tabela.setValueAt(tab.getCoddvd(), i,1);
-    tabela.setValueAt(tab.getCodcliente(), i,2);
-    tabela.setValueAt(tab.getHorario(), i,3);
-    tabela.setValueAt(tab.getData_aluguel(), i,4);
-    tabela.setValueAt(tab.getData_devolucao(), i,5);
+    tabela.setValueAt(tab.getAssunto(), i,1);
+    tabela.setValueAt(tab.getQuestao(), i,2);
+    
    
     i++;
     }
@@ -112,7 +109,7 @@ public void Listar_Cod_Cliente(String codcliente){
 
         jPanel2.setBackground(new java.awt.Color(153, 153, 153));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE  A ÁREA" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECIONE  A DISCIPLINA" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -125,7 +122,6 @@ public void Listar_Cod_Cliente(String codcliente){
         jButton1.setBorderPainted(false);
         jButton1.setFocusPainted(false);
         jButton1.setRequestFocusEnabled(false);
-        jButton1.setRolloverEnabled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -197,7 +193,7 @@ public void Listar_Cod_Cliente(String codcliente){
                 {null, null, null}
             },
             new String [] {
-                "Cídigo", "Área", "Questão"
+                "Cídigo", "Assunto", "Questão"
             }
         ));
         tabela.getTableHeader().setResizingAllowed(false);
@@ -228,20 +224,30 @@ public void Listar_Cod_Cliente(String codcliente){
     }// </editor-fold>//GEN-END:initComponents
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        Connection con = Conexao.AbrirConexao();
-        ClienteDAO sql = new ClienteDAO(con);
-        List<Cliente> lista = new ArrayList<>();
-        String nome = jComboBox1.getSelectedItem().toString();
-        lista =  sql.ConsultaCodigoCliente(nome);
+           
+       
+            Connection con = Conexao.AbrirConexao();
+    QuestoesDAO  bd = new QuestoesDAO(con);
 
-        for( Cliente b : lista){
+    List<Questoes> lista = new ArrayList<>();
+   String nome = jComboBox1.getSelectedItem().toString();
+    lista = bd.Pesquisar_Nome_Questoes(nome);
+    DefaultTableModel tbm = (DefaultTableModel) tabela.getModel();
 
-            int codClienteee =  b.getCodigo() ;
-            String codcliente = Integer.toString(codClienteee);
-            Listar_Cod_Cliente(codcliente);
-        }
-        Conexao.FecharConexao(con);
-
+    while(tbm.getRowCount() > 0){
+    tbm.removeRow(0);
+    }
+    int i = 0;
+    for(Questoes tab : lista){
+    tbm.addRow(new String[i]);
+   tabela.setValueAt(tab.getCod(), i,0);
+    tabela.setValueAt(tab.getAssunto(), i,1);
+    tabela.setValueAt(tab.getQuestao(), i,2);
+    
+   
+    i++;
+    }
+    Conexao.FecharConexao(con);
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -252,7 +258,7 @@ public void Listar_Cod_Cliente(String codcliente){
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        AtualizaDadosAluguel();
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -269,14 +275,14 @@ public void Listar_Cod_Cliente(String codcliente){
 
         // METODO PARA ENVIAR O VALOR DE UM VARIAVEL PARA OUTRO FRAME
         if(enviartexto == null){
-            enviartexto = new EfetuarDevolucaoo();
+           enviartexto = new Excluir();
             enviartexto.setVisible(true);
-            enviartexto.receber(jTextField1.getText());
+          enviartexto.receber(jTextField1.getText());
             dispose();
         }else{
             enviartexto.setVisible(true);
-            enviartexto.setState(EfetuarDevolucaoo.NORMAL);
-            enviartexto.receber(jTextField1.getText());
+            enviartexto.setState(Excluir.NORMAL);
+          enviartexto.receber(jTextField1.getText());
             dispose();
         }
 

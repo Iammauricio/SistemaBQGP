@@ -184,15 +184,15 @@ if( rs!= null){
     }
     
     public String Alterar_Questoes( Questoes a){
-    String sql = "UPDATE questoes SET disciplina = ? , assunto = ? ,resposta = ? ,resposta = ? WHERE codigo = ? ";
+    String sql = "UPDATE questoes SET Disciplina = ? , Assunto = ? ,Resposta = ? ,Questao = ? WHERE Codigo = ? ";
     try{
     PreparedStatement ps = getCon().prepareStatement(sql);
     
-    ps.setInt(1,a.getCod());
+    ps.setInt(5,a.getCod());
     ps.setString(2,a.getAssunto());
-    ps.setString(3,a.getQuestao());
-    ps.setString(4,a.getResposta()); 
-    ps.setString(5,a.getDisciplina());
+    ps.setString(4,a.getQuestao());
+    ps.setString(3,a.getResposta()); 
+    ps.setString(1,a.getDisciplina());
     
       if(ps.executeUpdate() > 0){
         return "Atualizado com sucesso";}else{ return "Erro ao Atualizar";}
@@ -265,15 +265,11 @@ if( rs!= null){
    }
    
    public String Excluir_Questoes(Questoes a){
-   String sql = "DELETE FROM questoes WHERE codigo = ? AND nome = ?";
+   String sql = "DELETE FROM questoes WHERE codigo = ? ";
    try{
    PreparedStatement ps = getCon().prepareStatement(sql);
   
     ps.setInt(1,a.getCod());
-    ps.setString(2,a.getAssunto());
-    ps.setString(3,a.getQuestao());
-    ps.setString(4,a.getResposta()); 
-    ps.setString(5,a.getDisciplina());
     
    
    if(ps.executeUpdate() > 0){

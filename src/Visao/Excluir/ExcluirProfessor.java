@@ -13,15 +13,9 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Maurilio Freitas
- */
+
 public class ExcluirProfessor extends javax.swing.JFrame {
 
-    /**
-     * Creates new form ExcluirProfessor
-     */
     public ExcluirProfessor() {
         initComponents();
         AtualizaProfessor();

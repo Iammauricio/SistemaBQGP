@@ -178,13 +178,13 @@ if( rs!= null){
     }
     
     public String Alterar_Disciplina( Disciplina a){
-    String sql = "UPDATE disciplina SET disciplina = ? , area = ? ,nome = ? ,resposta = ? WHERE codigo = ? ";
+    String sql = "UPDATE disciplina SET  Area = ? ,Nome = ?  WHERE Codigo = ? ";
     try{
     PreparedStatement ps = getCon().prepareStatement(sql);
     
-    ps.setInt(1,a.getCod());
-    ps.setString(2,a.getArea());
-    ps.setString(3,a.getNome());
+    ps.setInt(3,a.getCod());
+    ps.setString(1,a.getArea());
+    ps.setString(2,a.getNome());
     
     
       if(ps.executeUpdate() > 0){

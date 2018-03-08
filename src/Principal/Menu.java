@@ -1,10 +1,22 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Principal;
 
+import Visao.Alterar.AlterarAssunto;
+import Visao.Alterar.AlterarDisciplina;
+import Visao.Alterar.AlterarProfessor;
+import Visao.Alterar.AlterarQuestao;
+import Visao.Cadastrar.CadastraDisciplina;
+import Visao.Cadastrar.CadastrarAssuntos;
+import Visao.Cadastrar.CadastrarProfessor;
+import Visao.Cadastrar.CadastrarQuestões;
+import Visao.Consultar.ConsultaDisciplina;
+import Visao.Consultar.ConsultarAssuntos;
+import Visao.Consultar.ConsultarProfessor;
+import Visao.Consultar.ConsultarQuestoes;
+import Visao.Excluir.ExcluirAssunto;
+import Visao.Excluir.ExcluirDisciplina;
+import Visao.Excluir.ExcluirProfessor;
+import Visao.Excluir.ExcluirQuestao;
 import javax.swing.JOptionPane;
 
 
@@ -115,15 +127,35 @@ public class Menu extends javax.swing.JFrame {
         jMenu1.setText("Alterar");
 
         jMenu5.setText("Professor");
+        jMenu5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu5ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenu5);
 
         jMenu6.setText("Disciplina");
+        jMenu6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu6ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenu6);
 
         jMenu7.setText("Assunto");
+        jMenu7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu7ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenu7);
 
         jMenu8.setText("Questão");
+        jMenu8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu8ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenu8);
 
         jMenuBar1.add(jMenu1);
@@ -132,15 +164,35 @@ public class Menu extends javax.swing.JFrame {
         jMenu2.setText("Cadastrar");
 
         jMenu9.setText("Professor");
+        jMenu9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu9ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenu9);
 
         jMenu10.setText("Disciplina");
+        jMenu10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu10ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenu10);
 
         jMenu11.setText("Assunto");
+        jMenu11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu11ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenu11);
 
         jMenu12.setText("Questão");
+        jMenu12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu12ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenu12);
 
         jMenuBar1.add(jMenu2);
@@ -148,15 +200,35 @@ public class Menu extends javax.swing.JFrame {
         jMenu4.setText("Consultar");
 
         jMenu13.setText("Professor");
+        jMenu13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu13ActionPerformed(evt);
+            }
+        });
         jMenu4.add(jMenu13);
 
         jMenu14.setText("Disciplina");
+        jMenu14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu14ActionPerformed(evt);
+            }
+        });
         jMenu4.add(jMenu14);
 
         jMenu15.setText("Assunto");
+        jMenu15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu15ActionPerformed(evt);
+            }
+        });
         jMenu4.add(jMenu15);
 
         jMenu16.setText("Questão");
+        jMenu16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu16ActionPerformed(evt);
+            }
+        });
         jMenu4.add(jMenu16);
 
         jMenuBar1.add(jMenu4);
@@ -164,15 +236,35 @@ public class Menu extends javax.swing.JFrame {
         jMenu17.setText("Excluir");
 
         jMenu18.setText("Professor");
+        jMenu18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu18ActionPerformed(evt);
+            }
+        });
         jMenu17.add(jMenu18);
 
         jMenu19.setText("Disciplina");
+        jMenu19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu19ActionPerformed(evt);
+            }
+        });
         jMenu17.add(jMenu19);
 
         jMenu20.setText("Assunto");
+        jMenu20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu20ActionPerformed(evt);
+            }
+        });
         jMenu17.add(jMenu20);
 
         jMenu21.setText("Questão");
+        jMenu21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu21ActionPerformed(evt);
+            }
+        });
         jMenu17.add(jMenu21);
 
         jMenuBar1.add(jMenu17);
@@ -202,6 +294,90 @@ int opc = JOptionPane.showConfirmDialog(null, "Deseja realmente sair?");
             System.exit(0);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jMenu5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu5ActionPerformed
+new AlterarProfessor().setVisible(true);
+dispose();
+    }//GEN-LAST:event_jMenu5ActionPerformed
+
+    private void jMenu6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu6ActionPerformed
+new AlterarDisciplina().setVisible(true);
+dispose();
+    }//GEN-LAST:event_jMenu6ActionPerformed
+
+    private void jMenu7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu7ActionPerformed
+new AlterarAssunto().setVisible(true);
+dispose();
+    }//GEN-LAST:event_jMenu7ActionPerformed
+
+    private void jMenu8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu8ActionPerformed
+new AlterarQuestao().setVisible(true);
+dispose();
+    }//GEN-LAST:event_jMenu8ActionPerformed
+
+    private void jMenu9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu9ActionPerformed
+        
+        
+        new CadastrarProfessor().setVisible(true);
+dispose();
+    }//GEN-LAST:event_jMenu9ActionPerformed
+
+    private void jMenu10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu10ActionPerformed
+new CadastraDisciplina().setVisible(true);
+dispose();
+    }//GEN-LAST:event_jMenu10ActionPerformed
+
+    private void jMenu11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu11ActionPerformed
+     new CadastrarAssuntos().setVisible(true);
+dispose();
+        
+    }//GEN-LAST:event_jMenu11ActionPerformed
+
+    private void jMenu12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu12ActionPerformed
+new CadastrarQuestões().setVisible(true);
+dispose();
+    }//GEN-LAST:event_jMenu12ActionPerformed
+
+    private void jMenu13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu13ActionPerformed
+new ConsultarProfessor().setVisible(true);
+dispose();
+    }//GEN-LAST:event_jMenu13ActionPerformed
+
+    private void jMenu14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu14ActionPerformed
+new ConsultaDisciplina().setVisible(true);
+dispose();
+    }//GEN-LAST:event_jMenu14ActionPerformed
+
+    private void jMenu15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu15ActionPerformed
+
+        new ConsultarAssuntos().setVisible(true);
+dispose();
+    }//GEN-LAST:event_jMenu15ActionPerformed
+
+    private void jMenu16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu16ActionPerformed
+
+        new ConsultarQuestoes().setVisible(true);
+dispose();
+    }//GEN-LAST:event_jMenu16ActionPerformed
+
+    private void jMenu18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu18ActionPerformed
+new ExcluirProfessor().setVisible(true);
+dispose();
+    }//GEN-LAST:event_jMenu18ActionPerformed
+
+    private void jMenu19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu19ActionPerformed
+new ExcluirDisciplina().setVisible(true);
+dispose();
+    }//GEN-LAST:event_jMenu19ActionPerformed
+
+    private void jMenu20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu20ActionPerformed
+new ExcluirAssunto().setVisible(true);
+dispose();
+    }//GEN-LAST:event_jMenu20ActionPerformed
+
+    private void jMenu21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu21ActionPerformed
+ 
+    }//GEN-LAST:event_jMenu21ActionPerformed
 
     /**
      * @param args the command line arguments
