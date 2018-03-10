@@ -13,7 +13,11 @@ public class Questoes {
     private String disciplina;
     private String Assunto;
     private String questao;
-    private String resposta;
+    private String a;
+    private String b;
+    private String c;
+    private String d;
+    private String e;
     private int cod;
 
     public String getDisciplina() {
@@ -40,12 +44,44 @@ public class Questoes {
         this.questao = questao;
     }
 
-    public String getResposta() {
-        return resposta;
+    public String getA() {
+        return a;
     }
 
-    public void setResposta(String resposta) {
-        this.resposta = resposta;
+    public void setA(String a) {
+        this.a = a;
+    }
+
+    public String getB() {
+        return b;
+    }
+
+    public void setB(String b) {
+        this.b = b;
+    }
+
+    public String getC() {
+        return c;
+    }
+
+    public void setC(String c) {
+        this.c = c;
+    }
+
+    public String getD() {
+        return d;
+    }
+
+    public void setD(String d) {
+        this.d = d;
+    }
+
+    public String getE() {
+        return e;
+    }
+
+    public void setE(String e) {
+        this.e = e;
     }
 
     public int getCod() {
@@ -55,4 +91,5 @@ public class Questoes {
     public void setCod(int cod) {
         this.cod = cod;
     }
+
 }

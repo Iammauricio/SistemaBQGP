@@ -19,14 +19,18 @@ public class QuestoesDAO extends ExecuteSQL{
 // inserir os dados no banco
 public  String Inserir_Questao (Questoes a){
 
-String sql = "INSERT INTO questoes VALUES (0,?,?,?,?)";
+String sql = "INSERT INTO questoes VALUES (0,?,?,?,?,?,?,?,?)";
 try{
     PreparedStatement ps = getCon().prepareStatement(sql);
     
     ps.setString(1,a.getAssunto());
     ps.setString(2,a.getQuestao());
-    ps.setString(3,a.getResposta()); 
-    ps.setString(4,a.getDisciplina());
+    ps.setString(3,a.getA());
+    ps.setString(4,a.getB()); 
+    ps.setString(5,a.getC()); 
+    ps.setString(6,a.getD()); 
+    ps.setString(7,a.getE()); 
+    ps.setString(8,a.getDisciplina());
     
     if(ps.executeUpdate() > 0){
         return "Inserido com sucesso";
@@ -58,8 +62,7 @@ public List<Questoes>  ListarQuestao(){
             a.setCod(rs.getInt(1));
             a.setAssunto(rs.getString(2));
             a.setQuestao(rs.getString(3));
-            a.setResposta(rs.getString(4));
-            a.setDisciplina(rs.getString(5));
+            a.setDisciplina(rs.getString(4));
             lista.add(a);
             }
         return lista;
@@ -88,8 +91,7 @@ public List<Questoes>  ListarQuestao(){
             a.setCod(rs.getInt(1));
             a.setAssunto(rs.getString(2));
             a.setQuestao(rs.getString(3));
-            a.setResposta(rs.getString(4));
-            a.setDisciplina(rs.getString(5));
+            a.setDisciplina(rs.getString(4));
             lista.add(a);
           }
         return lista;
@@ -119,8 +121,7 @@ public List<Questoes>  ListarQuestao(){
             a.setCod(rs.getInt(1));
             a.setAssunto(rs.getString(2));
             a.setQuestao(rs.getString(3));
-            a.setResposta(rs.getString(4));
-            a.setDisciplina(rs.getString(5));
+            a.setDisciplina(rs.getString(4));
             lista.add(a);
         }
         return lista;
@@ -165,8 +166,7 @@ if( rs!= null){
             a.setCod(rs.getInt(1));
             a.setAssunto(rs.getString(2));
             a.setQuestao(rs.getString(3));
-            a.setResposta(rs.getString(4));
-            a.setDisciplina(rs.getString(5));   
+            a.setDisciplina(rs.getString(4));   
             
             
         lista.add(a);
@@ -190,8 +190,7 @@ if( rs!= null){
     
     ps.setInt(5,a.getCod());
     ps.setString(2,a.getAssunto());
-    ps.setString(4,a.getQuestao());
-    ps.setString(3,a.getResposta()); 
+    ps.setString(4,a.getQuestao()); 
     ps.setString(1,a.getDisciplina());
     
       if(ps.executeUpdate() > 0){
@@ -216,8 +215,7 @@ if( rs!= null){
             a.setCod(rs.getInt(1));
             a.setAssunto(rs.getString(2));
             a.setQuestao(rs.getString(3));
-            a.setResposta(rs.getString(4));
-            a.setDisciplina(rs.getString(5));
+            a.setDisciplina(rs.getString(4));
             
             
         lista.add(a);
@@ -247,8 +245,7 @@ if( rs!= null){
             a.setCod(rs.getInt(1));
             a.setAssunto(rs.getString(2));
             a.setQuestao(rs.getString(3));
-            a.setResposta(rs.getString(4));
-            a.setDisciplina(rs.getString(5));        
+            a.setDisciplina(rs.getString(4));        
             
             
         lista.add(a);
@@ -299,8 +296,7 @@ if( rs!= null){
             a.setCod(rs.getInt(1));
             a.setAssunto(rs.getString(2));
             a.setQuestao(rs.getString(3));
-            a.setResposta(rs.getString(4));
-            a.setDisciplina(rs.getString(5));
+            a.setDisciplina(rs.getString(4));
             
    lista.add(a);
    }
