@@ -16,6 +16,9 @@ public class AlterarAssunto extends javax.swing.JFrame {
     public AlterarAssunto() {
         initComponents();
         AtualizaCombo();
+        setResizable(false);
+        setLocationRelativeTo(this);
+       
     }
     
     

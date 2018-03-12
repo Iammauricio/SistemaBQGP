@@ -1,27 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Visao.Cadastrar;
 
 import DAO.Conexao;
 import DAO.ProfessorDAO;
 import Modelo.Professor;
+import Principal.Menu;
 import java.sql.Connection;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Maurilio Freitas
- */
 public class CadastrarProfessor extends javax.swing.JFrame {
 
-    /**
-     * Creates new form CadastrarProfessor
-     */
     public CadastrarProfessor() {
         initComponents();
+        setResizable(false);
+        setLocationRelativeTo(this);
     }
 
     
@@ -62,6 +54,11 @@ public class CadastrarProfessor extends javax.swing.JFrame {
         });
 
         jButton3.setText("CANCELAR");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -185,9 +182,15 @@ public class CadastrarProfessor extends javax.swing.JFrame {
             Senha.setText("");
 
             JOptionPane.showMessageDialog(null,"Cadastro realizado com sucesso", "BQGP", JOptionPane.INFORMATION_MESSAGE);
-
+                 new Menu().setVisible(true);
+ dispose();
         } 
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+ new Menu().setVisible(true);
+ dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

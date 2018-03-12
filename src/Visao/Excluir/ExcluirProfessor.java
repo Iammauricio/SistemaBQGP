@@ -19,6 +19,8 @@ public class ExcluirProfessor extends javax.swing.JFrame {
     public ExcluirProfessor() {
         initComponents();
         AtualizaProfessor();
+        setResizable(false);
+        setLocationRelativeTo(this);
         
     }
 
@@ -163,9 +165,8 @@ public class ExcluirProfessor extends javax.swing.JFrame {
                 sql.Excluir_Professor(a);
                 Conexao.FecharConexao(con);
                 dispose();
-                JOptionPane.showMessageDialog(null,"Categoria Professor excluido com sucesso");
                 new Menu().setVisible(true);
-
+                dispose();
             }
 
         }

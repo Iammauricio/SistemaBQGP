@@ -69,9 +69,9 @@ public List<Assunto>  ListarAssunto(){
     }
     
 }
-     // criaÃ§Ã£o do metodo de pesquisa por nome
-   public List<Assunto> Pesquisar_Nome_Assunto( String nome){
-   String sql = "SELECT * FROM assunto WHERE nome LIKE '%"+nome+"%'";
+    // 
+   public List<Assunto> Pesquisar_Disciplina_Assunto( String nome){
+   String sql = "SELECT * FROM assunto WHERE Disciplina LIKE '%"+nome+"%'";
    List<Assunto> lista = new ArrayList<>();
     
     try{
@@ -81,14 +81,9 @@ public List<Assunto>  ListarAssunto(){
     if(rs != null){
         while(rs.next()){
             Assunto a = new Assunto();
-            
             a.setCod(rs.getInt(1));
             a.setAssunto(rs.getString(2));
             a.setDisciplina(rs.getString(3));
-            
-            
-            
-            
             lista.add(a);
             }
         return lista;
@@ -100,40 +95,9 @@ public List<Assunto>  ListarAssunto(){
         return null;
     }
     
-   }
+   }// END
    
-     // criaÃ§Ã£o do metodo de pesquisa por id
-   public List<Assunto> Pesquisar_Cod_Assunto( String cod){
-   String sql = "SELECT * FROM assunto WHERE codigo LIKE '%"+cod+"%'";
-   List<Assunto> lista = new ArrayList<>();
     
-    try{
-    PreparedStatement ps = getCon().prepareStatement(sql);
-    ResultSet rs =  ps.executeQuery();
-    
-    if(rs != null){
-        while(rs.next()){
-            Assunto a = new Assunto();
-           
-            a.setCod(rs.getInt(1));
-            a.setAssunto(rs.getString(2));
-            a.setDisciplina(rs.getString(3));
-            
-            
-            
-            
-                lista.add(a);
-            }
-        return lista;
-    }else{
-        return null;
-        }
-    
-    }catch( SQLException e){
-        return null;
-    }
-    
-   }
     // metodo de verificaÃ§Ã£o se existe com ID igual
     public boolean Testar_Assunto(int cod){
     boolean Resultado = false;

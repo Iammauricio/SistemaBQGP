@@ -1,6 +1,7 @@
 
 package Principal;
 
+import Prova.Cadastrar;
 import Visao.Alterar.AlterarAssunto;
 import Visao.Alterar.AlterarDisciplina;
 import Visao.Alterar.AlterarProfessor;
@@ -8,7 +9,7 @@ import Visao.Alterar.AlterarQuestao;
 import Visao.Cadastrar.CadastraDisciplina;
 import Visao.Cadastrar.CadastrarAssuntos;
 import Visao.Cadastrar.CadastrarProfessor;
-import Visao.Cadastrar.CadastrarQuestões;
+import Visao.Cadastrar.CadastrarQuestao;
 import Visao.Consultar.ConsultaDisciplina;
 import Visao.Consultar.ConsultarAssuntos;
 import Visao.Consultar.ConsultarProfessor;
@@ -17,6 +18,7 @@ import Visao.Excluir.ExcluirAssunto;
 import Visao.Excluir.ExcluirDisciplina;
 import Visao.Excluir.ExcluirProfessor;
 import Visao.Excluir.ExcluirQuestao;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 
 
@@ -25,6 +27,9 @@ public class Menu extends javax.swing.JFrame {
     
     public Menu() {
         initComponents();
+        setResizable(false);
+        setLocationRelativeTo(this);
+        setTitle("Menu");
     }
 
    
@@ -33,39 +38,41 @@ public class Menu extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton4 = new javax.swing.JButton();
+        jPopupMenu1 = new javax.swing.JPopupMenu();
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
-        jMenu6 = new javax.swing.JMenu();
-        jMenu7 = new javax.swing.JMenu();
-        jMenu8 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu9 = new javax.swing.JMenu();
-        jMenu10 = new javax.swing.JMenu();
-        jMenu11 = new javax.swing.JMenu();
-        jMenu12 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        jMenu13 = new javax.swing.JMenu();
-        jMenu14 = new javax.swing.JMenu();
-        jMenu15 = new javax.swing.JMenu();
-        jMenu16 = new javax.swing.JMenu();
-        jMenu17 = new javax.swing.JMenu();
-        jMenu18 = new javax.swing.JMenu();
-        jMenu19 = new javax.swing.JMenu();
-        jMenu20 = new javax.swing.JMenu();
-        jMenu21 = new javax.swing.JMenu();
+        jMenu22 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenu23 = new javax.swing.JMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenu25 = new javax.swing.JMenu();
+        jMenuItem13 = new javax.swing.JMenuItem();
+        jMenuItem14 = new javax.swing.JMenuItem();
+        jMenuItem15 = new javax.swing.JMenuItem();
+        jMenuItem16 = new javax.swing.JMenuItem();
+        jMenu24 = new javax.swing.JMenu();
+        jMenuItem9 = new javax.swing.JMenuItem();
+        jMenuItem10 = new javax.swing.JMenuItem();
+        jMenuItem11 = new javax.swing.JMenuItem();
+        jMenuItem12 = new javax.swing.JMenuItem();
 
         jButton4.setText("jButton4");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Menu");
 
-        jPanel1.setBackground(new java.awt.Color(51, 255, 51));
+        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jButton1.setBackground(new java.awt.Color(255, 0, 0));
@@ -81,6 +88,11 @@ public class Menu extends javax.swing.JFrame {
 
         jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setText("GERAR PROVA ");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Microsoft PhagsPa", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -91,18 +103,17 @@ public class Menu extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(95, 95, 95)
-                        .addComponent(jButton2)
-                        .addGap(159, 159, 159)
-                        .addComponent(jButton3)
-                        .addGap(153, 153, 153)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(205, 205, 205)
-                        .addComponent(jLabel1)))
-                .addContainerGap(132, Short.MAX_VALUE))
+                .addGap(43, 43, 43)
+                .addComponent(jButton2)
+                .addGap(153, 153, 153)
+                .addComponent(jButton3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(168, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(128, 128, 128))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton1, jButton2, jButton3});
@@ -110,164 +121,170 @@ public class Menu extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(55, 55, 55)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(132, 132, 132)
+                .addGap(100, 100, 100)
                 .addComponent(jLabel1)
-                .addContainerGap(130, Short.MAX_VALUE))
+                .addContainerGap(105, Short.MAX_VALUE))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButton1, jButton2, jButton3});
 
-        jMenuBar1.setBackground(new java.awt.Color(0, 0, 0));
-
-        jMenu1.setText("Alterar");
-
-        jMenu5.setText("Professor");
-        jMenu5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu5ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenu5);
-
-        jMenu6.setText("Disciplina");
-        jMenu6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu6ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenu6);
-
-        jMenu7.setText("Assunto");
-        jMenu7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu7ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenu7);
-
-        jMenu8.setText("Questão");
-        jMenu8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu8ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenu8);
-
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.setBackground(new java.awt.Color(153, 153, 153));
+        jMenuBar1.setPreferredSize(new java.awt.Dimension(209, 27));
         jMenuBar1.add(jMenu3);
 
-        jMenu2.setText("Cadastrar");
+        jMenu22.setText("Alterar");
 
-        jMenu9.setText("Professor");
-        jMenu9.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem4.setText("Assunto");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu9ActionPerformed(evt);
+                jMenuItem4ActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenu9);
+        jMenu22.add(jMenuItem4);
 
-        jMenu10.setText("Disciplina");
-        jMenu10.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem3.setText("Disciplina");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu10ActionPerformed(evt);
+                jMenuItem3ActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenu10);
+        jMenu22.add(jMenuItem3);
 
-        jMenu11.setText("Assunto");
-        jMenu11.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem1.setText("Professor");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu11ActionPerformed(evt);
+                jMenuItem1ActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenu11);
+        jMenu22.add(jMenuItem1);
 
-        jMenu12.setText("Questão");
-        jMenu12.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem2.setText("Questão");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu12ActionPerformed(evt);
+                jMenuItem2ActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenu12);
+        jMenu22.add(jMenuItem2);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(jMenu22);
 
-        jMenu4.setText("Consultar");
+        jMenu23.setText("Cadastrar");
 
-        jMenu13.setText("Professor");
-        jMenu13.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem5.setText("Assunto");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu13ActionPerformed(evt);
+                jMenuItem5ActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenu13);
+        jMenu23.add(jMenuItem5);
 
-        jMenu14.setText("Disciplina");
-        jMenu14.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem6.setText("Disciplina");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu14ActionPerformed(evt);
+                jMenuItem6ActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenu14);
+        jMenu23.add(jMenuItem6);
 
-        jMenu15.setText("Assunto");
-        jMenu15.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem7.setText("Professor");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu15ActionPerformed(evt);
+                jMenuItem7ActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenu15);
+        jMenu23.add(jMenuItem7);
 
-        jMenu16.setText("Questão");
-        jMenu16.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem8.setText("Questão");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu16ActionPerformed(evt);
+                jMenuItem8ActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenu16);
+        jMenu23.add(jMenuItem8);
 
-        jMenuBar1.add(jMenu4);
+        jMenuBar1.add(jMenu23);
 
-        jMenu17.setText("Excluir");
+        jMenu25.setText("Consultar");
 
-        jMenu18.setText("Professor");
-        jMenu18.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem13.setText("Assunto");
+        jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu18ActionPerformed(evt);
+                jMenuItem13ActionPerformed(evt);
             }
         });
-        jMenu17.add(jMenu18);
+        jMenu25.add(jMenuItem13);
 
-        jMenu19.setText("Disciplina");
-        jMenu19.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem14.setText("Disciplina");
+        jMenuItem14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu19ActionPerformed(evt);
+                jMenuItem14ActionPerformed(evt);
             }
         });
-        jMenu17.add(jMenu19);
+        jMenu25.add(jMenuItem14);
 
-        jMenu20.setText("Assunto");
-        jMenu20.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem15.setText("Professor");
+        jMenuItem15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu20ActionPerformed(evt);
+                jMenuItem15ActionPerformed(evt);
             }
         });
-        jMenu17.add(jMenu20);
+        jMenu25.add(jMenuItem15);
 
-        jMenu21.setText("Questão");
-        jMenu21.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem16.setText("Questão");
+        jMenuItem16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu21ActionPerformed(evt);
+                jMenuItem16ActionPerformed(evt);
             }
         });
-        jMenu17.add(jMenu21);
+        jMenu25.add(jMenuItem16);
 
-        jMenuBar1.add(jMenu17);
+        jMenuBar1.add(jMenu25);
+
+        jMenu24.setText("Excluir");
+
+        jMenuItem9.setText("Assunto");
+        jMenuItem9.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jMenuItem9FocusGained(evt);
+            }
+        });
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
+        jMenu24.add(jMenuItem9);
+
+        jMenuItem10.setText("Disciplina");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
+        jMenu24.add(jMenuItem10);
+
+        jMenuItem11.setText("Professor");
+        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem11ActionPerformed(evt);
+            }
+        });
+        jMenu24.add(jMenuItem11);
+
+        jMenuItem12.setText("Questão");
+        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem12ActionPerformed(evt);
+            }
+        });
+        jMenu24.add(jMenuItem12);
+
+        jMenuBar1.add(jMenu24);
 
         setJMenuBar(jMenuBar1);
 
@@ -275,14 +292,11 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -295,89 +309,94 @@ int opc = JOptionPane.showConfirmDialog(null, "Deseja realmente sair?");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jMenu5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu5ActionPerformed
-new AlterarProfessor().setVisible(true);
+    private void jMenuItem9FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jMenuItem9FocusGained
+       
+    }//GEN-LAST:event_jMenuItem9FocusGained
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+new  AlterarAssunto().setVisible(true);
 dispose();
-    }//GEN-LAST:event_jMenu5ActionPerformed
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
-    private void jMenu6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu6ActionPerformed
-new AlterarDisciplina().setVisible(true);
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+new  AlterarDisciplina().setVisible(true);
 dispose();
-    }//GEN-LAST:event_jMenu6ActionPerformed
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
-    private void jMenu7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu7ActionPerformed
-new AlterarAssunto().setVisible(true);
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+new  AlterarProfessor().setVisible(true);
 dispose();
-    }//GEN-LAST:event_jMenu7ActionPerformed
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void jMenu8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu8ActionPerformed
-new AlterarQuestao().setVisible(true);
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+new  AlterarQuestao().setVisible(true);
 dispose();
-    }//GEN-LAST:event_jMenu8ActionPerformed
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-    private void jMenu9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu9ActionPerformed
-        
-        
-        new CadastrarProfessor().setVisible(true);
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+new  CadastrarAssuntos().setVisible(true);
 dispose();
-    }//GEN-LAST:event_jMenu9ActionPerformed
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
-    private void jMenu10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu10ActionPerformed
-new CadastraDisciplina().setVisible(true);
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+new  CadastraDisciplina().setVisible(true);
 dispose();
-    }//GEN-LAST:event_jMenu10ActionPerformed
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
 
-    private void jMenu11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu11ActionPerformed
-     new CadastrarAssuntos().setVisible(true);
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+new  CadastrarProfessor().setVisible(true);
 dispose();
-        
-    }//GEN-LAST:event_jMenu11ActionPerformed
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
 
-    private void jMenu12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu12ActionPerformed
-new CadastrarQuestões().setVisible(true);
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+new  CadastrarQuestao().setVisible(true);
 dispose();
-    }//GEN-LAST:event_jMenu12ActionPerformed
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
 
-    private void jMenu13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu13ActionPerformed
-new ConsultarProfessor().setVisible(true);
+    private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
+new  ConsultarAssuntos().setVisible(true);
 dispose();
-    }//GEN-LAST:event_jMenu13ActionPerformed
+    }//GEN-LAST:event_jMenuItem13ActionPerformed
 
-    private void jMenu14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu14ActionPerformed
-new ConsultaDisciplina().setVisible(true);
+    private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
+new  ConsultaDisciplina().setVisible(true);
 dispose();
-    }//GEN-LAST:event_jMenu14ActionPerformed
+    }//GEN-LAST:event_jMenuItem14ActionPerformed
 
-    private void jMenu15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu15ActionPerformed
-
-        new ConsultarAssuntos().setVisible(true);
+    private void jMenuItem15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem15ActionPerformed
+new  ConsultarProfessor().setVisible(true);
 dispose();
-    }//GEN-LAST:event_jMenu15ActionPerformed
+    }//GEN-LAST:event_jMenuItem15ActionPerformed
 
-    private void jMenu16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu16ActionPerformed
-
-        new ConsultarQuestoes().setVisible(true);
+    private void jMenuItem16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem16ActionPerformed
+new  ConsultarQuestoes().setVisible(true);
 dispose();
-    }//GEN-LAST:event_jMenu16ActionPerformed
+    }//GEN-LAST:event_jMenuItem16ActionPerformed
 
-    private void jMenu18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu18ActionPerformed
-new ExcluirProfessor().setVisible(true);
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+new  ExcluirAssunto().setVisible(true);
 dispose();
-    }//GEN-LAST:event_jMenu18ActionPerformed
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
 
-    private void jMenu19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu19ActionPerformed
-new ExcluirDisciplina().setVisible(true);
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+new  ExcluirDisciplina().setVisible(true);
 dispose();
-    }//GEN-LAST:event_jMenu19ActionPerformed
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
 
-    private void jMenu20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu20ActionPerformed
-new ExcluirAssunto().setVisible(true);
+    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+new  ExcluirProfessor().setVisible(true);
 dispose();
-    }//GEN-LAST:event_jMenu20ActionPerformed
+    }//GEN-LAST:event_jMenuItem11ActionPerformed
 
-    private void jMenu21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu21ActionPerformed
- 
-    }//GEN-LAST:event_jMenu21ActionPerformed
+    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
+new  ExcluirQuestao().setVisible(true);
+dispose();
+    }//GEN-LAST:event_jMenuItem12ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+new Cadastrar().setVisible(true);
+dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -420,28 +439,29 @@ dispose();
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu10;
-    private javax.swing.JMenu jMenu11;
-    private javax.swing.JMenu jMenu12;
-    private javax.swing.JMenu jMenu13;
-    private javax.swing.JMenu jMenu14;
-    private javax.swing.JMenu jMenu15;
-    private javax.swing.JMenu jMenu16;
-    private javax.swing.JMenu jMenu17;
-    private javax.swing.JMenu jMenu18;
-    private javax.swing.JMenu jMenu19;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu20;
-    private javax.swing.JMenu jMenu21;
+    private javax.swing.JMenu jMenu22;
+    private javax.swing.JMenu jMenu23;
+    private javax.swing.JMenu jMenu24;
+    private javax.swing.JMenu jMenu25;
     private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu7;
-    private javax.swing.JMenu jMenu8;
-    private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem10;
+    private javax.swing.JMenuItem jMenuItem11;
+    private javax.swing.JMenuItem jMenuItem12;
+    private javax.swing.JMenuItem jMenuItem13;
+    private javax.swing.JMenuItem jMenuItem14;
+    private javax.swing.JMenuItem jMenuItem15;
+    private javax.swing.JMenuItem jMenuItem16;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPopupMenu jPopupMenu1;
     // End of variables declaration//GEN-END:variables
 }

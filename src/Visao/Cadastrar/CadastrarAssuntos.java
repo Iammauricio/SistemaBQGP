@@ -6,6 +6,7 @@ import DAO.Conexao;
 import DAO.DisciplinaDAO;
 import Modelo.Assunto;
 import Modelo.Disciplina;
+import Principal.Menu;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
@@ -89,6 +90,11 @@ public class CadastrarAssuntos extends javax.swing.JFrame {
         });
 
         jButton3.setText("CANCELAR");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("DISCIPLINA");
@@ -182,9 +188,15 @@ public class CadastrarAssuntos extends javax.swing.JFrame {
             select.setSelectedItem("SELECIONAR DISCIPLINA");
 
             JOptionPane.showMessageDialog(null,"Cadastro realizado com sucesso", "BQGP", JOptionPane.INFORMATION_MESSAGE);
-
+             new Menu().setVisible(true);
+ dispose();
         }   // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+ new Menu().setVisible(true);
+ dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

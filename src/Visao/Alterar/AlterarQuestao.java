@@ -21,6 +21,8 @@ public class AlterarQuestao extends javax.swing.JFrame {
         initComponents();
         AtualizaCombo();
         AtualizaAssunto();
+        setResizable(false);
+        setLocationRelativeTo(this);
     }
 
     // METODO PARA INSERIR AS INFORMACOES NOS CAMPOS DE  TEXTO
@@ -34,7 +36,6 @@ public class AlterarQuestao extends javax.swing.JFrame {
         
         codigo.setText(""+a.getCod());
         jTextField1.setText(""+a.getQuestao());
-        jTextField2.setText(""+a.getResposta());
         jComboBox1.setSelectedItem(""+a.getDisciplina()+"");
         jComboBox2.setSelectedItem(""+a.getAssunto()+"");
     }
@@ -87,8 +88,6 @@ public class AlterarQuestao extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -136,9 +135,6 @@ public class AlterarQuestao extends javax.swing.JFrame {
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("QUESTÃO");
 
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("RESPOSTA");
-
         jButton1.setText("LIMPAR");
 
         jButton2.setText("CADASTRAR");
@@ -149,6 +145,11 @@ public class AlterarQuestao extends javax.swing.JFrame {
         });
 
         jButton3.setText("CANCELAR");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jPanel3.setBackground(new java.awt.Color(153, 153, 153));
 
@@ -199,10 +200,6 @@ public class AlterarQuestao extends javax.swing.JFrame {
                 .addGap(80, 80, 80)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextField2))
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -255,11 +252,7 @@ public class AlterarQuestao extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(60, 60, 60)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -301,7 +294,6 @@ public class AlterarQuestao extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null,"Codigo não Encontrado no Banco","BQGP",JOptionPane.WARNING_MESSAGE);
                 Conexao.FecharConexao(con);
             }
-            jTextField2.setText("");
             jTextField1.setText("");
             jComboBox1.setSelectedItem("SELECIONAR DISCIPLINA");
             jComboBox2.setSelectedItem("SELECIONAR ASSUNTO");
@@ -316,7 +308,6 @@ public class AlterarQuestao extends javax.swing.JFrame {
         
         int  codigoo = Integer.parseInt(this.codigo.getText());
          String questaaa  =  this.jTextField1.getText();
-         String respostaa  =  this.jTextField2.getText();
         String disciplinaa = this.jComboBox1.getSelectedItem().toString();
         String assuntoo = this.jComboBox2.getSelectedItem().toString();
 
@@ -332,14 +323,13 @@ public class AlterarQuestao extends javax.swing.JFrame {
             a.setCod(codigoo);
             a.setDisciplina(disciplinaa);
             a.setQuestao(questaaa);
-            a.setResposta(respostaa);
+        
           
            
             sql.Alterar_Questoes(a);
             Conexao.FecharConexao(con);
 
             this.jTextField1.setText("");
-            this.jTextField2.setText("");
             this.jComboBox1.setSelectedItem("SELECIONAR DISCIPLINA");
             this.jComboBox2.setSelectedItem("SELECIONAR ASSUNTO");
             JOptionPane.showMessageDialog(null, "Alteração realizada com sucesso","BQGP",JOptionPane.INFORMATION_MESSAGE);
@@ -351,6 +341,11 @@ public class AlterarQuestao extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+ new Menu().setVisible(true);
+ dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -400,13 +395,11 @@ public class AlterarQuestao extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }

@@ -71,7 +71,7 @@ public List<Disciplina>  ListarDisciplina(){
 }
      // criacao do metodo de pesquisa por nome
    public List<Disciplina> Pesquisar_Nome_Disciplina( String nome){
-   String sql = "SELECT * FROM disciplina WHERE nome LIKE '%"+nome+"%'";
+   String sql = "SELECT * FROM disciplina WHERE Nome LIKE '%"+nome+"%'";
    List<Disciplina> lista = new ArrayList<>();
     
     try{
@@ -100,8 +100,8 @@ public List<Disciplina>  ListarDisciplina(){
    }
    
      // criacao do metodo de pesquisa por id
-   public List<Disciplina> Pesquisar_Cod_Disciplina( String cod){
-   String sql = "SELECT * FROM disciplina WHERE codigo LIKE '%"+cod+"%'";
+   public List<Disciplina> Pesquisar_Area_Disciplina( String area){
+   String sql = "SELECT * FROM disciplina WHERE Area LIKE '%"+area+"%'";
    List<Disciplina> lista = new ArrayList<>();
     
     try{

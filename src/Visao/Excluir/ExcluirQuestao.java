@@ -42,8 +42,6 @@ for(Questoes tab : lista){
 tbm.addRow(new String[i]);
 tabela.setValueAt(tab.getCod(), i,0);
 tabela.setValueAt(tab.getQuestao(), i,1);
-tabela.setValueAt(tab.getResposta(), i,2);
-
 i++;
 }
 Conexao.FecharConexao(con);

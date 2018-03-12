@@ -40,7 +40,7 @@ try{
 // puxar as informaÃ§Ãµes do banco de dados
 public List<Professor>  ListarProfessor(){
     
-    String sql = "SELECT codigo,nome,rg,cpf,senha FROM professor";
+    String sql = "SELECT * FROM professor";
     List<Professor> lista = new ArrayList<>();
     
     try{
@@ -73,7 +73,7 @@ public List<Professor>  ListarProfessor(){
 }
      // criaÃ§Ã£o do metodo de pesquisa por nome
    public List<Professor> Pesquisar_Nome_Professor( String nome){
-   String sql = "SELECT * FROM professor WHERE nome LIKE '%"+nome+"%'";
+   String sql = "SELECT * FROM professor WHERE Nome LIKE '%"+nome+"%'";
    List<Professor> lista = new ArrayList<>();
     
     try{
@@ -104,8 +104,8 @@ public List<Professor>  ListarProfessor(){
    }
    
      // criaÃ§Ã£o do metodo de pesquisa por id
-   public List<Professor> Pesquisar_Cod_Professor( String cod){
-   String sql = "SELECT * FROM professor WHERE codigo LIKE '%"+cod+"%'";
+   public List<Professor> Pesquisar_Cpf_Professor( String Cpf){
+   String sql = "SELECT * FROM professor WHERE Cpf LIKE '%"+Cpf+"%'";
    List<Professor> lista = new ArrayList<>();
     
     try{
@@ -307,6 +307,10 @@ if( rs!= null){
    return null;}
        
    }//END
+   
+   
+   
+   
    
 }
     

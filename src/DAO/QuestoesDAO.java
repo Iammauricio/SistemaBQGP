@@ -1,6 +1,7 @@
 package DAO;
 
 import Modelo.Assunto;
+import Modelo.Prova;
 import Modelo.Questoes;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,20 +18,20 @@ public class QuestoesDAO extends ExecuteSQL{
     
     
 // inserir os dados no banco
-public  String Inserir_Questao (Questoes a){
+public  String Inserir_Questao (Questoes z){
 
 String sql = "INSERT INTO questoes VALUES (0,?,?,?,?,?,?,?,?)";
 try{
     PreparedStatement ps = getCon().prepareStatement(sql);
     
-    ps.setString(1,a.getAssunto());
-    ps.setString(2,a.getQuestao());
-    ps.setString(3,a.getA());
-    ps.setString(4,a.getB()); 
-    ps.setString(5,a.getC()); 
-    ps.setString(6,a.getD()); 
-    ps.setString(7,a.getE()); 
-    ps.setString(8,a.getDisciplina());
+    ps.setString(1,z.getAssunto());
+    ps.setString(2,z.getQuestao());
+    ps.setString(3,z.getA());
+    ps.setString(4,z.getB()); 
+    ps.setString(5,z.getC()); 
+    ps.setString(6,z.getD()); 
+    ps.setString(7,z.getE()); 
+    ps.setString(8,z.getDisciplina());
     
     if(ps.executeUpdate() > 0){
         return "Inserido com sucesso";
@@ -44,6 +45,32 @@ try{
 
     
     
+// METODO DE CADASTRO  DE QUESTÃO  SUBJETIVA
+public  String Inserir_Questao_Subjetiva (Questoes z){
+
+String sql = "INSERT INTO questoes VALUES (0,?,?,?,?,?,?,?,?)";
+try{
+    PreparedStatement ps = getCon().prepareStatement(sql);
+    
+    ps.setString(1,z.getAssunto());
+    ps.setString(2,z.getQuestao());
+    ps.setString(3,"");
+    ps.setString(4,""); 
+    ps.setString(5,""); 
+    ps.setString(6,""); 
+    ps.setString(7,""); 
+    ps.setString(8,z.getDisciplina());
+    
+    if(ps.executeUpdate() > 0){
+        return "Inserido com sucesso";
+    }else{
+        return "Erro ao Insessir";
+                    }
+    }catch(SQLException e){
+        return e.getMessage();
+    }
+}// END
+
     
 // puxar as informacoes do banco de dados
 public List<Questoes>  ListarQuestao(){
@@ -62,7 +89,7 @@ public List<Questoes>  ListarQuestao(){
             a.setCod(rs.getInt(1));
             a.setAssunto(rs.getString(2));
             a.setQuestao(rs.getString(3));
-            a.setDisciplina(rs.getString(4));
+            a.setDisciplina(rs.getString(9));
             lista.add(a);
             }
         return lista;
@@ -103,11 +130,11 @@ public List<Questoes>  ListarQuestao(){
         return null;
     }
     
-   }
+   }// END
    
      // criaÃ§Ã£o do metodo de pesquisa por id
    public List<Questoes> Pesquisar_Cod_Questoes( String cod){
-   String sql = "SELECT * FROM questoes WHERE codigo LIKE '%"+cod+"%'";
+   String sql = "SELECT * FROM questoes WHERE codigo = '"+cod+"'";
    List<Questoes> lista = new ArrayList<>();
     
     try{
@@ -230,9 +257,9 @@ if( rs!= null){
        
    }
    
-   
-   public List<Questoes> ConsultaCodigoQuestoes( String nome){
-   String sql = "SELECT  FROM questoes WHERE nome = '"+ nome +"'";
+   // METODO PARA PESQUISAR A QUESTÃO PELA DISCIPLINA
+   public List<Questoes> Consulta_Disciplina_Questoes( String nome){
+   String sql = "SELECT * FROM questoes WHERE Disciplina = '"+ nome +"'";
    List<Questoes> lista = new ArrayList<>();
    try{
    PreparedStatement ps = getCon().prepareStatement(sql);
@@ -245,7 +272,7 @@ if( rs!= null){
             a.setCod(rs.getInt(1));
             a.setAssunto(rs.getString(2));
             a.setQuestao(rs.getString(3));
-            a.setDisciplina(rs.getString(4));        
+            a.setDisciplina(rs.getString(9));        
             
             
         lista.add(a);
@@ -259,7 +286,72 @@ if( rs!= null){
    }catch( Exception ex){
    return null;
    }
+   }// END
+   
+   
+   // METODO PARA PESQUISAR A QUESTÃO PELO ASSUNTO
+   public List<Questoes> Consulta_Assunto_Questoes( String nome){
+   String sql = "SELECT * FROM questoes WHERE Assunto = '"+ nome +"'";
+   List<Questoes> lista = new ArrayList<>();
+   try{
+   PreparedStatement ps = getCon().prepareStatement(sql);
+   ResultSet rs = ps.executeQuery();
+   
+   if(rs != null){
+   while(rs.next()){
+   Questoes a = new Questoes();
+    
+            a.setCod(rs.getInt(1));
+            a.setAssunto(rs.getString(2));
+            a.setQuestao(rs.getString(3));
+            a.setDisciplina(rs.getString(9));        
+            
+            
+        lista.add(a);
+  
    }
+   return lista;
+   }else{
+   
+   return null;}
+   
+   }catch( Exception ex){
+   return null;
+   }
+   }// END
+   
+   
+   
+   // METODO PARA PESQUISAR A QUESTÃO PELO ASSUNTO E A DISCIPLINA AO MESMO TEMPO
+   public List<Questoes> Dupla_Consulta_Questoes( String disciplina, String assunto){
+   String sql = "SELECT * FROM questoes WHERE Assunto = '"+ assunto +"' AND Disciplina = '"+disciplina+"'";
+   List<Questoes> lista = new ArrayList<>();
+   try{
+   PreparedStatement ps = getCon().prepareStatement(sql);
+   ResultSet rs = ps.executeQuery();
+   
+   if(rs != null){
+   while(rs.next()){
+   Questoes a = new Questoes();
+    
+            a.setCod(rs.getInt(1));
+            a.setAssunto(rs.getString(2));
+            a.setQuestao(rs.getString(3));
+            a.setDisciplina(rs.getString(9));        
+            
+            
+        lista.add(a);
+  
+   }
+   return lista;
+   }else{
+   
+   return null;}
+   
+   }catch( Exception ex){
+   return null;
+   }
+   }// END
    
    public String Excluir_Questoes(Questoes a){
    String sql = "DELETE FROM questoes WHERE codigo = ? ";
@@ -310,5 +402,45 @@ if( rs!= null){
        
    }//END
    
-
+   ////SELECT * FROM  `prova` JOIN `questoes` WHERE id = '3' AND prova.Codigo = questoes.Codigo
+    
+   
+   
+   
+     // TESTE
+   public List<Questoes> Duplo( String nome){
+   String sql = " SELECT * FROM  `prova` JOIN `questoes` WHERE id = '"+nome+"' AND prova.Codigo = questoes.Codigo";
+   List<Questoes> lista = new ArrayList<>();
+    
+    try{
+    PreparedStatement ps = getCon().prepareStatement(sql);
+    ResultSet rs =  ps.executeQuery();
+    
+    if(rs != null){
+        while(rs.next()){
+            Questoes a = new Questoes();
+           //SELECT * FROM  `prova` JOIN `questoes` WHERE id = '3' AND prova.Codigo = questoes.Codigo
+            
+            a.setAssunto(rs.getString(4));
+            a.setQuestao(rs.getString(5));
+            a.setA(rs.getString(6));
+            a.setB(rs.getString(7));
+            a.setC(rs.getString(8));
+            a.setD(rs.getString(9));
+            a.setE(rs.getString(10));
+            lista.add(a);
+          }
+        return lista;
+    }else{
+        return null;
+        }
+    
+    }catch( SQLException e){
+        return null;
+    }
+    
+   }// END
+   
 }
+   
+   
