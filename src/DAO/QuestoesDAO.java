@@ -290,7 +290,7 @@ if( rs!= null){
    
    
    // METODO PARA PESQUISAR A QUESTÃO PELO ASSUNTO
-   public List<Questoes> Consulta_Assunto_Questoes( String nome){
+   public List<Questoes> Consulta_Assunto_Questoes( String nome ){
    String sql = "SELECT * FROM questoes WHERE Assunto = '"+ nome +"'";
    List<Questoes> lista = new ArrayList<>();
    try{
@@ -319,6 +319,9 @@ if( rs!= null){
    return null;
    }
    }// END
+   
+   
+   
    
    
    

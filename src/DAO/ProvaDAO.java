@@ -3,6 +3,7 @@ package DAO;
 import Modelo.Assunto;
 import Modelo.Professor;
 import Modelo.Prova;
+import Modelo.Questoes;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -105,7 +106,34 @@ try{
    
    
       
-       
+          
+// puxar as informacoes do banco de dados
+public List<Prova>  ListarProva(){
+    
+    String sql = "SELECT DISTINCT id , questoes.Disciplina FROM `prova` JOIN questoes WHERE prova.Codigo = questoes.Codigo";
+    List<Prova> lista = new ArrayList<>();
+    
+    try{
+    PreparedStatement ps = getCon().prepareStatement(sql);
+    ResultSet rs =  ps.executeQuery();
+    
+    if(rs != null){
+        while(rs.next()){
+            Prova a = new Prova();
+            a.setCodigo(rs.getInt(1));
+            a.setDisciplina(rs.getString(2));
+            lista.add(a);
+            }
+        return lista;
+    }else{
+        return null;
+        }
+    
+    }catch( SQLException e){
+        return null;
+    }
+    
+}
        
            
   

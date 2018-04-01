@@ -81,6 +81,22 @@ VerProva CodigoDaProva;
      }// END
 
      
+     // METODO PARA LISTAR OS ASSUNTOS  NO COMBOBOX RELACIONADA A DISCIPLINA
+     private void AtualizaAssuntoDisciplina(){
+        Connection con = Conexao.AbrirConexao();
+        AssuntoDAO sql = new AssuntoDAO(con);
+        List<Assunto> lista = new ArrayList<>();
+       String nome = jComboBox1.getSelectedItem().toString();
+        
+        lista = sql.Pesquisar_Disciplina_Assunto(nome);
+        
+        for (Assunto b : lista){
+           jComboBox2.addItem(b.getAssunto());
+        }
+       
+        Conexao.FecharConexao(con);
+     }// END
+     
         //METODO PARA LISTAR TODAS AS QUESTOES
       public void Atualizar_Tabela(){
            Connection con = Conexao.AbrirConexao();
@@ -105,12 +121,8 @@ VerProva CodigoDaProva;
           }
           Conexao.FecharConexao(con);
       }
-      // METODO PARA MOSTRAR TODAS AS QUESTÕES
-      private void Mostrar_Todos(){
-      if(jComboBox2.getSelectedIndex() == 0){
-          Atualizar_Tabela();
-      }
-      }
+      
+      
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -165,11 +177,11 @@ VerProva CodigoDaProva;
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(22, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel3)
-                        .addComponent(jTextField2)))
+                        .addComponent(jTextField2))
+                    .addComponent(jLabel1))
                 .addContainerGap())
         );
 
@@ -234,6 +246,11 @@ VerProva CodigoDaProva;
         });
 
         jButton1.setText("SALVAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setText("DISCIPLINA");
@@ -378,7 +395,8 @@ VerProva CodigoDaProva;
           Conexao.FecharConexao(con);
       jComboBox1.disable();
       jComboBox1.setBackground(Color.BLACK);
- JOptionPane.showMessageDialog(null,"Só é possivel selecionar a Disciplina uma vez !","BQGP",JOptionPane.INFORMATION_MESSAGE);
+ AtualizaAssuntoDisciplina();
+      JOptionPane.showMessageDialog(null,"Só é possivel selecionar a Disciplina uma vez !","BQGP",JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
@@ -406,8 +424,7 @@ VerProva CodigoDaProva;
           }
           
           Conexao.FecharConexao(con);
-     Mostrar_Todos();
-
+     
 
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
@@ -476,6 +493,11 @@ String cod = jTextField1.getText();
  
 }
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+new Menu().setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

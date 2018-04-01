@@ -4,6 +4,16 @@ public class Prova {
 int Proximo_Id;
 int codigo;
 int codigo_questao;
+String disciplina;
+ 
+
+    public String getDisciplina() {
+        return disciplina;
+    }
+
+    public void setDisciplina(String disciplina) {
+        this.disciplina = disciplina;
+    }
     
     public int getCodigo_questao() {
         return codigo_questao;
